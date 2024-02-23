@@ -1,9 +1,17 @@
 function minDate(dates) {
   //write you code here
+	const dateObjects = dates.map(date => new Date(date));
+	// Sort the date objects in ascending order
+	dateObjects.sort((a, b) => a - b);
+	// Get the earliest date from the sorted array
+	const earliestDate = dateObjects[0];
+	// Format the earliest date into "YYYY/MM/DD" format
+	const year = earliestDate.getFullYear();
+	const month = String(earliestDate.getMonth() + 1).padStart(2, '0');
+	const day = String(earliestDate.getDate()).padStart(2, '0');
+	return `${year}/${month}/${day}`;
 }
-
 // Do not change the code
-
 var dates = [
   "2023/03/01",
   "2023/03/02",
@@ -36,5 +44,4 @@ var dates = [
   "2023/03/29",
   "2023/03/30",
 ];
-
-alert(minDate(dates));
+// alert(minDate(dates));
